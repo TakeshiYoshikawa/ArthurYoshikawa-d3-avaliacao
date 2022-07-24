@@ -1,0 +1,9 @@
+﻿<Application x:Class="ArthurYoshikawa_d3_avaliacao.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:ArthurYoshikawa_d3_avaliacao"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+         
+    </Application.Resources>
+</Application>
