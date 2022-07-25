@@ -1,4 +1,5 @@
-﻿using ArthurYoshikawa_d3_avaliacao.Models.Base;
+﻿using ArthurYoshikawa_d3_avaliacao.Model;
+using ArthurYoshikawa_d3_avaliacao.Models.Base;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -19,13 +20,18 @@ namespace ArthurYoshikawa_d3_avaliacao.Models
             this.currentDirectory = Directory.GetCurrentDirectory();
             this.fileName = "Log.txt";
             this.filePath = $"{this.currentDirectory}/{fileName}";
+
+            if (!File.Exists(filePath))
+            {
+                File.Create(filePath);
+            }
         }
 
-        public override void Log(string userId, string state)
+        public override void Log(User user, string state)
         {
             using(StreamWriter sw = File.AppendText(filePath))
             {
-                sw.WriteLine($"{userId};{DateTime.Now.ToString("HH:mm:ss")};{DateTime.Now.ToString("dd/MM/yyyy")};{state}");
+                sw.WriteLine($"{user.Id};{user.Name};{DateTime.Now.ToString("HH:mm:ss")};{DateTime.Now.ToString("dd/MM/yyyy")};{state}");
             }
         }
     }

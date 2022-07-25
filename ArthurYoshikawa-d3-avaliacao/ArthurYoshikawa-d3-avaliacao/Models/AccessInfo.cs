@@ -9,6 +9,7 @@ namespace ArthurYoshikawa_d3_avaliacao.Models
     public class AccessInfo
     {
         public string LogId;
+        public string Username;
         public string AccessTime;
         public string AccessDate;
         public string Status;

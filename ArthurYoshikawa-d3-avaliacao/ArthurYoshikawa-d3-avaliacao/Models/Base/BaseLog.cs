@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ArthurYoshikawa_d3_avaliacao.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +9,6 @@ namespace ArthurYoshikawa_d3_avaliacao.Models.Base
 {
     public abstract class BaseLog
     {
-        public abstract void Log(string message, string state);
+        public abstract void Log(User user, string state);
     }
 }

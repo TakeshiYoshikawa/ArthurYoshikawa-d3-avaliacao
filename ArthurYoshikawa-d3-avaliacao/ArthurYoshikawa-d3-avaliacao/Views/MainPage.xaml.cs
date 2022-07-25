@@ -25,8 +25,11 @@ namespace ArthurYoshikawa_d3_avaliacao.Views
     /// </summary>
     public partial class MainPage : UserControl
     {
+        private string filePath;
+
         public MainPage()
         {
+            filePath = new Logger().filePath;
             InitializeComponent();
         }
 
@@ -49,20 +52,23 @@ namespace ArthurYoshikawa_d3_avaliacao.Views
 
             DataTable dataTable = new();
             dataTable.Columns.Add("Id", typeof(string));
+            dataTable.Columns.Add("Name", typeof(string));
             dataTable.Columns.Add("Access Time", typeof(string));
             dataTable.Columns.Add("Access Date", typeof(string));
             dataTable.Columns.Add("Status", typeof(string));
 
-            using (StreamReader sr = new(new Logger().filePath))
+
+            using (StreamReader sr = new(filePath))
             {
                 while (!sr.EndOfStream)
                 {
                     accessInfos = sr.ReadLine().Split(";");
 
                     accessInfo.LogId = accessInfos[0];
-                    accessInfo.AccessTime = accessInfos[1];
-                    accessInfo.AccessDate = accessInfos[2];
-                    accessInfo.Status = accessInfos[3];
+                    accessInfo.Username = accessInfos[1];
+                    accessInfo.AccessTime = accessInfos[2];
+                    accessInfo.AccessDate = accessInfos[3];
+                    accessInfo.Status = accessInfos[4];
 
                     dataTable.Rows.Add(accessInfos);
                 }

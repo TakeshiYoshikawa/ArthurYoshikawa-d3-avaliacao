@@ -39,8 +39,8 @@ namespace ArthurYoshikawa_d3_avaliacao.Views
 
             if (credentials.Password == PasswordTextBox.Text)
             {
-                logger.Log(credentials.Id, "Log In");
-                this.Content = new UserHomePage(credentials.Id);
+                logger.Log(credentials, "Log In");
+                this.Content = new UserHomePage(credentials);
             }
             else
             {

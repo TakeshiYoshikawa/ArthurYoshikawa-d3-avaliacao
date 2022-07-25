@@ -1,4 +1,5 @@
-﻿using ArthurYoshikawa_d3_avaliacao.Models;
+﻿using ArthurYoshikawa_d3_avaliacao.Model;
+using ArthurYoshikawa_d3_avaliacao.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,10 +22,10 @@ namespace ArthurYoshikawa_d3_avaliacao.Views
     /// </summary>
     public partial class UserHomePage : UserControl
     {
-        private string activeUser;
+        private User activeUser;
         private Logger logger;
 
-        public UserHomePage(string user)
+        public UserHomePage(User user)
         {
             InitializeComponent();
 
