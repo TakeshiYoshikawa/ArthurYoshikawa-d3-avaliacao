@@ -24,12 +24,8 @@
             </TabItem>
 
             <TabItem Header="Logs">
-                <DataGrid x:Name="LogDataGrid" AutoGenerateColumns="True" Loaded="LogDataGrid_Loaded">
+                <DataGrid x:Name="LogDataGrid" AutoGenerateColumns="True" Loaded="LogDataGrid_Loaded" IsReadOnly="True">
                     <DataGrid.Columns>
-                        <!--<DataGridTextColumn Header="Id"/>
-                        <DataGridTextColumn Header="Access Time"/>
-                        <DataGridTextColumn Header="Access Date"/>
-                        <DataGridTextColumn Header="Status"/>-->
                     </DataGrid.Columns>
                 </DataGrid>
             </TabItem>
