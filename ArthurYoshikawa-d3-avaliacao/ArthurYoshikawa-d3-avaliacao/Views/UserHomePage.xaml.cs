@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ArthurYoshikawa_d3_avaliacao.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,14 +21,21 @@ namespace ArthurYoshikawa_d3_avaliacao.Views
     /// </summary>
     public partial class UserHomePage : UserControl
     {
-        public UserHomePage()
+        private string activeUser;
+        private Logger logger;
+
+        public UserHomePage(string user)
         {
             InitializeComponent();
+
+            activeUser = user;
+            logger = new();
         }
 
         private void LogoutButton_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Returning to Main Page");
+            MessageBox.Show("Log out");
+            logger.Log(activeUser, "Log out");
             this.Content = new MainPage();
         }
 

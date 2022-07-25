@@ -7,14 +7,32 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="auto"/>
-        </Grid.RowDefinitions>
+        <TabControl>
+            <TabItem Header="MainPage">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+                    
+                    <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
+                        <Button Margin="10" Width="200" Content="Access" Click="AccessButton_Click"/>
+                        <Button Margin="10" Width="200" Content="Cancel" Click="CancelButton_Click"/>
+                    </StackPanel>
+                </Grid>
+                 
+            </TabItem>
 
-        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
-            <Button Margin="10" Width="200" Content="Access" Click="AccessButton_Click"/>
-            <Button Margin="10" Width="200" Content="Cancel" Click="CancelButton_Click"/>
-        </StackPanel>
+            <TabItem Header="Logs">
+                <DataGrid x:Name="LogDataGrid" AutoGenerateColumns="True" Loaded="LogDataGrid_Loaded">
+                    <DataGrid.Columns>
+                        <!--<DataGridTextColumn Header="Id"/>
+                        <DataGridTextColumn Header="Access Time"/>
+                        <DataGridTextColumn Header="Access Date"/>
+                        <DataGridTextColumn Header="Status"/>-->
+                    </DataGrid.Columns>
+                </DataGrid>
+            </TabItem>
+        </TabControl>
     </Grid>
 </UserControl>

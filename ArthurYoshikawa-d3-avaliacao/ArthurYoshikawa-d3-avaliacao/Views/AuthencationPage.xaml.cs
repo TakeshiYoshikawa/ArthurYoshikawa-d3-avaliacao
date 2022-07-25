@@ -1,4 +1,5 @@
-﻿using ArthurYoshikawa_d3_avaliacao.Repositories;
+﻿using ArthurYoshikawa_d3_avaliacao.Models;
+using ArthurYoshikawa_d3_avaliacao.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,10 +23,13 @@ namespace ArthurYoshikawa_d3_avaliacao.Views
     public partial class AuthencationPage : UserControl
     {
         private UserRepository db;
+        private Logger logger;
 
         public AuthencationPage()
         {
             db = new UserRepository();
+            logger = new Logger();
+
             InitializeComponent();
         }
 
@@ -34,9 +38,14 @@ namespace ArthurYoshikawa_d3_avaliacao.Views
             var credentials = db.GetByEmail(EmailTextBox.Text);
 
             if (credentials.Password == PasswordTextBox.Text)
-                this.Content = new UserHomePage();
+            {
+                logger.Log(credentials.Id, "Log In");
+                this.Content = new UserHomePage(credentials.Id);
+            }
             else
+            {
                 MessageBox.Show("Incorrect password", "Password does not match");
+            }
         }
     }
 }
